@@ -9,7 +9,10 @@ from dns.resolver import Resolver
 
 logging.root.setLevel(logging.INFO)
 mode = os.environ["MODE"]
-ports = os.environ["PORT"].split()
+if os.environ["PORT"] == "all":
+    ports = [str(i) for i in range(50000,60000)] + "80 443".split()
+else:
+    ports = os.environ["PORT"].split()
 max_connections = os.environ.get("MAX_CONNECTIONS", 100)
 ip = target = os.environ["TARGET"]
 udp_answers = os.environ.get("UDP_ANSWERS", "1")

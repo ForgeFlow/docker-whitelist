@@ -13,3 +13,4 @@ push_to_ghcr: true
 pytest: true
 python_versions:
   - "3.9"
+  
